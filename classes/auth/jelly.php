@@ -20,7 +20,7 @@ class Auth_Jelly extends Auth {
 		$status = FALSE;
 
 		// Get the user from the session
-		$user = $this->_session->get($this->_config['session_key']);
+		$user = $this->get_user();
 
 		if ( ! is_object($user))
 		{
@@ -28,7 +28,7 @@ class Auth_Jelly extends Auth {
 			if ($this->auto_login())
 			{
 				// Success, get the user back out of the session
-				$user = $this->_session->get($this->_config['session_key']);
+				$user = $this->get_user();
 			}
 		}
 
